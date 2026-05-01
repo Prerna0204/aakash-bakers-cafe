@@ -117,20 +117,6 @@ document.getElementById("orderForm").addEventListener("submit", function(event) 
 </script>
 
 
-        // --- Seller Notification (basic email trigger) ---
-        // This uses 'mailto:' to open the seller's email client with order details.
-        // Replace with your seller email address below:
-        let sellerEmail = "rampuriap8@gmail.com";
-        let subject = "New Order from " + name;
-        let body = "Customer Name: " + name + "%0D%0A" +
-                   "Contact Number: " + contact + "%0D%0A" +
-                   "Order: " + order + "%0D%0A" +
-                   "Delivery Time: 5 PM at Ujjain";
-        window.location.href = "mailto:" + sellerEmail + "?subject=" + subject + "&body=" + body;
-    });
-</script>
-
-
     <section id="gallery">
         <h2>Photo Gallery</h2>
         <div class="gallery">
