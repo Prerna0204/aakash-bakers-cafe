@@ -92,17 +92,17 @@
         </div>
     </section>
 
-    <section id="order">
+  <section id="order">
     <h2>Place Your Order</h2>
-    <form id="orderForm">
+    <form id="orderForm" method="POST" action="https://formspree.io/f/mykoyqpw">
         <label>Your Name:</label><br>
-        <input type="text" id="name" required><br><br>
+        <input type="text" name="name" required><br><br>
 
         <label>Contact Number:</label><br>
-        <input type="tel" id="contact" required><br><br>
+        <input type="tel" name="contact" required><br><br>
 
         <label>Enter your order:</label><br>
-        <input type="text" id="order" required><br><br>
+        <input type="text" name="order" required><br><br>
 
         <button type="submit">Place Order</button>
     </form>
@@ -110,16 +110,12 @@
 </section>
 
 <script>
-    document.getElementById("orderForm").addEventListener("submit", function(event) {
-        event.preventDefault();
-        let name = document.getElementById("name").value;
-        let contact = document.getElementById("contact").value;
-        let order = document.getElementById("order").value;
+document.getElementById("orderForm").addEventListener("submit", function(event) {
+    document.getElementById("message").innerText = 
+        "Thank you! Your order has been received. It will be delivered at 5 PM. you can whatsapp also on this number to confirm 8602540880";
+});
+</script>
 
-        // Show confirmation to customer
-        document.getElementById("message").innerText = 
-            "Thank you " + name + "! Your order for '" + order + 
-            "' has been received. It will be delivered at 5 PM. We will contact you at " + contact + ".";
 
         // --- Seller Notification (basic email trigger) ---
         // This uses 'mailto:' to open the seller's email client with order details.
