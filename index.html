@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aakash Bakers and Café</title>
+</head>
+<body>
+    <h1>Welcome to Aakash Bakers and Café</h1>
+    <p>We accept delivery orders only after 5 PM.</p>
+
+    <form id="orderForm">
+        <label>Enter your order:</label>
+        <input type="text" id="order" required>
+        <button type="submit">Place Order</button>
+    </form>
+
+    <p id="message"></p>
+
+    <script>
+        document.getElementById("orderForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let now = new Date();
+            let hour = now.getHours();
+            if (hour >= 17) {
+                document.getElementById("message").innerText = "Order placed successfully!";
+            } else {
+                document.getElementById("message").innerText = "Sorry, orders are only accepted after 5 PM.";
+            }
+        });
+    </script>
+</body>
+</html>
