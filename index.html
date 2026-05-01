@@ -93,14 +93,47 @@
     </section>
 
     <section id="order">
-        <h2>Place Your Order</h2>
-        <form id="orderForm">
-            <label>Enter your order:</label><br>
-            <input type="text" id="order" required><br><br>
-            <button type="submit">Place Order</button>
-        </form>
-        <p id="message"></p>
-    </section>
+    <h2>Place Your Order</h2>
+    <form id="orderForm">
+        <label>Your Name:</label><br>
+        <input type="text" id="name" required><br><br>
+
+        <label>Contact Number:</label><br>
+        <input type="tel" id="contact" required><br><br>
+
+        <label>Enter your order:</label><br>
+        <input type="text" id="order" required><br><br>
+
+        <button type="submit">Place Order</button>
+    </form>
+    <p id="message"></p>
+</section>
+
+<script>
+    document.getElementById("orderForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        let name = document.getElementById("name").value;
+        let contact = document.getElementById("contact").value;
+        let order = document.getElementById("order").value;
+
+        // Show confirmation to customer
+        document.getElementById("message").innerText = 
+            "Thank you " + name + "! Your order for '" + order + 
+            "' has been received. It will be delivered at 5 PM. We will contact you at " + contact + ".";
+
+        // --- Seller Notification (basic email trigger) ---
+        // This uses 'mailto:' to open the seller's email client with order details.
+        // Replace with your seller email address below:
+        let sellerEmail = "rampuriap8@gmail.com";
+        let subject = "New Order from " + name;
+        let body = "Customer Name: " + name + "%0D%0A" +
+                   "Contact Number: " + contact + "%0D%0A" +
+                   "Order: " + order + "%0D%0A" +
+                   "Delivery Time: 5 PM at Ujjain";
+        window.location.href = "mailto:" + sellerEmail + "?subject=" + subject + "&body=" + body;
+    });
+</script>
+
 
     <section id="gallery">
         <h2>Photo Gallery</h2>
@@ -115,7 +148,7 @@
     <section id="contact">
         <h2>Contact Us</h2>
         <p>📍 Location: Aakash Bakers and Café, Ujjain</p>
-        <p>📞 Phone: +91-9876543210</p>
+        <p>📞 Phone: +91-9691275781</p>
     </section>
 
     <footer>
